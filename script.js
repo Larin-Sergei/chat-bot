@@ -4,6 +4,7 @@ const chatMessages = document.getElementById('chatMessages');
 
 let currentName = '';
 let numbers = [];
+let isStarted = false;
 
 let typingIndicator = null;
 
@@ -185,8 +186,35 @@ function botLogic(text) {
 
     if (text === '/start') {
 
+        isStarted = true;
+
         addMessage(
             'Привет, меня зовут Чат-бот, а как зовут тебя?',
+            'bot'
+        );
+
+        return;
+    }
+
+    if (!isStarted) {
+
+        addMessage(
+            'Введите команду /start, для начала общения',
+            'bot'
+        );
+
+        return;
+    }
+
+    if (text === '/stop') {
+
+        isStarted = false;
+
+        currentName = '';
+        numbers = [];
+
+        addMessage(
+            'Всего доброго, если хочешь поговорить пиши /start',
             'bot'
         );
 
@@ -292,16 +320,6 @@ function botLogic(text) {
 
         addMessage(
             `Результат: ${result}`,
-            'bot'
-        );
-
-        return;
-    }
-
-    if (text === '/stop') {
-
-        addMessage(
-            'Всего доброго, если хочешь поговорить пиши /start',
             'bot'
         );
 
