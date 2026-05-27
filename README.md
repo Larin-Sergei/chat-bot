@@ -75,17 +75,3 @@ https://larin-sergei.github.io/chat-bot
 2. Распаковать архив
 3. Открыть файл `index.html` в браузере
 
----
-
-## Структура проекта
-
-chatbot/
-│
-├── index.html
-├── style.css
-├── script.js
-│
-└── assets/
-    ├── bot_avatar.png
-    ├── user_avatar.png
-    └── paper-plane.svg
